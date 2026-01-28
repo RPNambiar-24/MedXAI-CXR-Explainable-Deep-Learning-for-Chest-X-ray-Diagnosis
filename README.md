@@ -1,20 +1,20 @@
-# Explainable AI for Chest X-ray Disease Classification
+# 🩺 MedXAI-CXR: Explainable Deep Learning for Chest X-ray Diagnosis
 
-## Overview
+## 🌟 Overview
 
-This project investigates the use of **deep learning with explainable AI (XAI)** for multi-class chest X-ray diagnosis. The goal is not only to achieve high classification accuracy but also to understand **why** the model makes decisions, which is critical for clinical trust.
+**MedXAI-CXR** is an explainable deep learning system for automated chest X-ray diagnosis. The goal is not only to achieve high classification accuracy but also to understand **why** the model makes decisions — a key requirement for trustworthy medical AI.
 
 The system classifies X-rays into:
 
-- COVID-19  
-- Pneumonia  
-- Normal  
+- 🦠 COVID-19  
+- 🫁 Pneumonia  
+- ✅ Normal  
 
 We compare a **baseline CNN** with a **transfer learning ResNet50 model** and analyze model behavior using **Grad-CAM, LIME, and SHAP**.
 
 ---
 
-## Objectives
+## 🎯 Objectives
 
 - Develop a deep learning model for chest X-ray classification  
 - Compare baseline vs transfer learning performance  
@@ -23,10 +23,21 @@ We compare a **baseline CNN** with a **transfer learning ResNet50 model** and an
 
 ---
 
-## Dataset
+## 📂 Dataset
 
-The dataset contains chest X-ray images organized into:
+This project uses the **Chest X-ray COVID-19 & Pneumonia Dataset** from Kaggle:
 
+🔗 https://www.kaggle.com/datasets/prashant268/chest-xray-covid19-pneumonia
+
+### 📖 Context
+
+COVID-19 is an infectious disease caused by SARS-CoV-2. While RT-PCR is the standard diagnostic method, chest X-ray (CXR) imaging provides rapid and widely accessible screening support. AI-based analysis of CXR images can assist in early detection and diagnosis.
+
+### 📦 Dataset Structure
+
+The dataset contains **6432 chest X-ray images** organized as:
+
+```
 dataset/  
 ├── train/  
 │ ├── COVID19/  
@@ -36,21 +47,31 @@ dataset/
 &nbsp;&nbsp;&nbsp;&nbsp;├── COVID19/  
 &nbsp;&nbsp;&nbsp;&nbsp;├── NORMAL/  
 &nbsp;&nbsp;&nbsp;&nbsp;└── PNEUMONIA/  
+```
 
-Images are resized to **224×224** and normalized for deep learning input.
+- 3 classes: COVID-19, Pneumonia, Normal  
+- Test data ≈ 20% of total images  
+
+### 🙏 Acknowledgements
+
+Images are collected from publicly available sources. Please credit original contributors when using the dataset:
+
+- https://github.com/ieee8023/covid-chestxray-dataset  
+- https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia  
+- https://github.com/agchung  
 
 ---
 
-## Methodology
+## ⚙️ Methodology
 
-### Models Used
+### 🧠 Models Used
 
 | Model | Description |
 |------|-------------|
 | Baseline CNN | Custom shallow convolutional neural network |
 | ResNet50 | Transfer learning model with pretrained ImageNet weights |
 
-### Training Setup
+### 🏋️ Training Setup
 
 - Loss Function: CrossEntropyLoss  
 - Optimizer: Adam  
@@ -58,7 +79,7 @@ Images are resized to **224×224** and normalized for deep learning input.
 - Epochs: 5  
 - Batch Size: 32  
 
-### Evaluation Metrics
+### 📏 Evaluation Metrics
 
 - Accuracy  
 - Precision  
@@ -68,9 +89,9 @@ Images are resized to **224×224** and normalized for deep learning input.
 
 ---
 
-## Results
+## 📊 Results
 
-### Model Performance
+### 🧮 Model Performance
 
 | Model | Accuracy | Macro F1 | COVID Recall | Normal Recall | Pneumonia Recall |
 |-------|----------|----------|--------------|---------------|------------------|
@@ -81,19 +102,19 @@ Transfer learning improved diagnostic sensitivity, especially for COVID detectio
 
 ---
 
-### Training Loss Comparison
+### 📈 Training Loss Comparison
 
 ResNet50 converged faster and achieved lower final loss compared to the baseline CNN, demonstrating the benefit of pretrained features.
 
 ---
 
-### Confusion Matrix Insight
+### 📉 Confusion Matrix Insight
 
 Most misclassifications occurred between Normal and Pneumonia, reflecting clinically subtle differences. COVID detection remained highly reliable.
 
 ---
 
-## Explainability Analysis
+## 🔍 Explainability Analysis
 
 | Method | Strength | Limitation |
 |--------|----------|-----------|
@@ -105,7 +126,7 @@ Grad-CAM provided the most clinically interpretable explanations.
 
 ---
 
-## Key Findings
+## 🧠 Key Findings
 
 - Transfer learning improves medical image classification performance  
 - High accuracy does not guarantee trustworthy AI  
@@ -114,7 +135,7 @@ Grad-CAM provided the most clinically interpretable explanations.
 
 ---
 
-## Project Structure
+## 🗂️ Project Structure
 
 train_baseline.py  
 train_resnet.py  
@@ -128,7 +149,7 @@ plot_loss.py
 
 ---
 
-## How to Run
+## ▶️ How to Run
 
 ### Train Models
 
@@ -148,13 +169,13 @@ python shap_explain.py
 
 ---
 
-## Conclusion
+## 🏁 Conclusion
 
-The study demonstrates that combining **transfer learning with explainable AI** produces a highly accurate and interpretable medical imaging system. Grad-CAM emerged as the most clinically meaningful explanation method, supporting its use in AI-assisted radiology.
+Combining **transfer learning with explainable AI** produces a highly accurate and interpretable medical imaging system. Grad-CAM emerged as the most clinically meaningful explanation method, supporting its use in AI-assisted radiology.
 
 ---
 
-## Future Work
+## 🚀 Future Work
 
 - Incorporate radiologist validation  
 - Use segmentation-guided explanations  
@@ -163,8 +184,8 @@ The study demonstrates that combining **transfer learning with explainable AI** 
 
 ---
 
-## Author
+## 👨‍💻 Author
 
-Rishab P Nambiar  
+**Rishab P Nambiar**  
 Integrated MSc Data Science Student  
 Research Focus: AI, Medical Imaging, Explainable AI
