@@ -44,9 +44,9 @@ dataset/
 │ ├── NORMAL/  
 │ └── PNEUMONIA/  
 └── val/  
-&nbsp;&nbsp;&nbsp;&nbsp;├── COVID19/  
-&nbsp;&nbsp;&nbsp;&nbsp;├── NORMAL/  
-&nbsp;&nbsp;&nbsp;&nbsp;└── PNEUMONIA/  
+│ ├── COVID19/  
+│ ├── NORMAL/  
+│ └── PNEUMONIA/  
 ```
 
 - 3 classes: COVID-19, Pneumonia, Normal  
